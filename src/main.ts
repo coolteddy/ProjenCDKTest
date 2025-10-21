@@ -1,11 +1,16 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
+import { App, RemovalPolicy, Stack, StackProps } from 'aws-cdk-lib';
+import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
 export class MyStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps = {}) {
     super(scope, id, props);
 
-    // define resources here...
+    // Create a simple S3 bucket
+    new s3.Bucket(this, 'MySimpleBucket', {
+      removalPolicy: RemovalPolicy.DESTROY, // Not for production
+      autoDeleteObjects: true // Not for production
+    });
   }
 }
 
