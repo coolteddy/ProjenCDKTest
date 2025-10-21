@@ -4,6 +4,8 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   name: 'ProjenCDKTest',
   projenrcTs: true,
+  github: true, // enable GitHub workflows
+  workflowNodeVersion: 'lts/*', // use latest LTS node for workflow
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
